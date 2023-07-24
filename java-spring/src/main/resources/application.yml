@@ -2,15 +2,15 @@ server.port: 8090 # tomcat server port:8090 set
 
 spring:
   security:
-#    oauth2:
-#      client:
-#        registration:
-#          google:
-#            client-id: 423794899259-v1u4c59oie7dhmhmnbeuh2ta0fjun841.apps.googleusercontent.com
-#            client-secret: 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
-#            scope:
-#              - email
-#              - profile
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 423794899259-v1u4c59oie7dhmhmnbeuh2ta0fjun841.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+              - email
+              - profile
     user: # initial name & password
       name: user
       password: 1234
@@ -47,3 +47,6 @@ mybatis:
     map-underscore-to-camel-case: true # camel case
   # xml에 있는 모델 앞의 패키지명을 생략 가능하도록 지원해주는 기능
   type-aliases-package: com.anjxxyi.practice.boilerplate.model
+
+jwt:
+  secret: 1234

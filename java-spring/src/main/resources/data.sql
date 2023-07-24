@@ -1,3 +1,3 @@
-insert into member(`id`, `email`) values (1, 'test10@test.com');
-insert into member(`id`, `email`) values (2, 'test20@test.com');
-insert into member(`id`, `email`) values (3, 'test30@test.com');
+INSERT INTO member(`id`, `email`) VALUES (1, 'test10@test.com');
+INSERT INTO member(`id`, `email`) VALUES (2, 'test20@test.com');
+INSERT INTO member(`id`, `email`) VALUES (3, 'test30@test.com');
