@@ -1,1 +1,1 @@
-# jxxyi-bolierplate
+# jxxyi-boilerplate
