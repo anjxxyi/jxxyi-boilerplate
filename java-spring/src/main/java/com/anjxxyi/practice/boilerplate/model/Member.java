@@ -1,4 +1,4 @@
-package com.anjxxyi.practice.bolierplate.model;
+package com.anjxxyi.practice.boilerplate.model;
 
 import jakarta.persistence.*;
 import lombok.*;

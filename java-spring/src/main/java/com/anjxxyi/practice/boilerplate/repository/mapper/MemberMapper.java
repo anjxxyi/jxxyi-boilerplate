@@ -1,6 +1,6 @@
-package com.anjxxyi.practice.bolierplate.repository.mapper;
+package com.anjxxyi.practice.boilerplate.repository.mapper;
 
-import com.anjxxyi.practice.bolierplate.model.Member;
+import com.anjxxyi.practice.boilerplate.model.Member;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package com.anjxxyi.practice.bolierplate;
+package com.anjxxyi.practice.boilerplate;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

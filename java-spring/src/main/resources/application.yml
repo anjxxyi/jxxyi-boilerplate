@@ -42,8 +42,8 @@ spring:
       enabled: true
 
 mybatis:
-  mapper-locations: mybatis-mapper/**/*.xml # mapper.xml
+  mapper-locations: mybatis-mapper/**/*-sql.xml # mapper.xml
   configuration:
     map-underscore-to-camel-case: true # camel case
   # xml에 있는 모델 앞의 패키지명을 생략 가능하도록 지원해주는 기능
-  type-aliases-package: com.anjxxyi.practice.bolierplate.model.mapper
+  type-aliases-package: com.anjxxyi.practice.boilerplate.model

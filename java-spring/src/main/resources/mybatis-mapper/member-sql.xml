@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.anjxxyi.practice.bolierplate.repository.mapper.MemberMapper">
+<mapper namespace="com.anjxxyi.practice.boilerplate.repository.mapper.MemberMapper">
     <select id="selectMember" parameterType="hashmap" resultType="Member">
         SELECT id, email
         FROM member
