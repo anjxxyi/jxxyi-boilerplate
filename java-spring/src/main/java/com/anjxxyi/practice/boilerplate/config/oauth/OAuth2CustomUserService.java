@@ -2,7 +2,7 @@ package com.anjxxyi.practice.boilerplate.config.oauth;
 
 import com.anjxxyi.practice.boilerplate.config.jwt.JwtTokenProvider;
 import com.anjxxyi.practice.boilerplate.model.Member;
-import com.anjxxyi.practice.boilerplate.model.dto.JwtTokenDto;
+import com.anjxxyi.practice.boilerplate.model.dtos.JwtTokenDto;
 import com.anjxxyi.practice.boilerplate.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -69,7 +69,7 @@ public class OAuth2CustomUserService implements OAuth2UserService<OAuth2UserRequ
         Member member = memberRepository.findByEmailAndProvider(memberProfile.getEmail(), memberProfile.getProvider())
                 .map(m -> m.update(
                         memberProfile.getNickname(),
-                        memberProfile.getEmail())) // OAuth 서비스 사이트에서 유저 정보 변경이 있을 수 있기 때문에 우리 DB에도 update
+                        memberProfile.getEmail())) // OAuth 서비스 사이트에서 유저 정보 변경이 있을 수 있기 때문에 DB에도 update
                 .orElse(memberProfile.toMember());
 
         return memberRepository.save(member);

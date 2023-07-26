@@ -1,0 +1,35 @@
+@font-face {
+  font-family:'Pretendard';
+  src:url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff') format('woff');
+  font-weight:300;
+  font-style:normal;
+}
+@font-face {
+  font-family:'Pretendard';
+  src:url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight:400;
+  font-style:normal;
+}
+@font-face {
+  font-family:'Pretendard';
+  src:url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
+  font-weight:500;
+  font-style:normal;
+}
+@font-face {
+  font-family:'Pretendard';
+  src:url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff') format('woff');
+  font-weight:600;
+  font-style:normal;
+}
+
+/*** RESET *** Don't Touch ***/
+* {margin:0; padding:0; box-sizing:border-box;}
+html {font-family:'Pretendard'; font-size:16px; font-weight:400; line-height:1.4; color:#555;}
+/* body {display:flex; place-items:center; min-width:320px; min-height:100vh;} */
+ol, ul, li {list-style:none;}
+a {display:inline-block; text-decoration:none; color:inherit; outline:0;}
+img {max-width:100%; border:0;}
+input, textarea, select {border-radius:0; border:0; font-family:inherit; font-size:inherit; line-height:inherit; padding:1rem;}
+button {cursor:pointer; outline:0; border:0; border-radius:0; padding:0; font-family:inherit; font-size:inherit; font-weight:inherit;}
+h1, h2, h3, h4, h5, h6 {line-height:1;}

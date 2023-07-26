@@ -4,17 +4,19 @@ import com.anjxxyi.practice.boilerplate.model.enums.Authority;
 import jakarta.persistence.*;
 import lombok.*;
 import org.apache.ibatis.annotations.Mapper;
+import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
-@Mapper
+@Getter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-@Builder
+@DynamicUpdate
+@Mapper
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false)
     private Long id;
 
     @Column(nullable = false)
@@ -31,15 +33,16 @@ public class Member {
 
     private Long accessTokenExpireIn;
 
-
-
     @Enumerated(EnumType.STRING)
     private Authority authority;
+
     public void setNickname(String nickname) {
         this.nickname = nickname;
     }
 
-    public void setPassword(String password) { this.password = password; }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public void setAccessToken(String accessToken) {
         this.accessToken = accessToken;

@@ -1,7 +1,7 @@
 package com.anjxxyi.practice.boilerplate.jwt;
 
 import com.anjxxyi.practice.boilerplate.config.jwt.JwtTokenProvider;
-import com.anjxxyi.practice.boilerplate.model.dto.JwtTokenDto;
+import com.anjxxyi.practice.boilerplate.model.dtos.JwtTokenDto;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

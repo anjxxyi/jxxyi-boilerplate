@@ -1,7 +1,7 @@
 package com.anjxxyi.practice.boilerplate.config.oauth;
 
 import com.anjxxyi.practice.boilerplate.model.Member;
-import com.anjxxyi.practice.boilerplate.model.dto.JwtTokenDto;
+import com.anjxxyi.practice.boilerplate.model.dtos.JwtTokenDto;
 import com.anjxxyi.practice.boilerplate.model.enums.Authority;
 import lombok.Getter;
 import lombok.Setter;

@@ -13,6 +13,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 
 @RequiredArgsConstructor
+// :: 토큰 파싱 > 유저정보를 가져옴 > 유저정보 안에 토큰이 유효할 경우  => 해당 유저에게 권한 부여 ~> OncePerRequestFilter 상속 후 오버라이드
 public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
     public static final String AUTHORIZATION_HEADER = "Authorization";
     public static final String BEARER_PREFIX = "Bearer ";

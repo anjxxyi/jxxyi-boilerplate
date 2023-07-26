@@ -1,6 +1,6 @@
 package com.anjxxyi.practice.boilerplate.config.jwt;
 
-import com.anjxxyi.practice.boilerplate.model.dto.JwtTokenDto;
+import com.anjxxyi.practice.boilerplate.model.dtos.JwtTokenDto;
 import com.anjxxyi.practice.boilerplate.model.enums.Authority;
 import io.jsonwebtoken.*;
 import lombok.extern.slf4j.Slf4j;
@@ -13,38 +13,30 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 
-//import java.util.Base64;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Date;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Component
 @Slf4j
+// :: JWT 토큰을 생성, 파싱, 유효성 검사
 public class JwtTokenProvider {
     private static final String AUTHORITIES_KEY = "auth";
     private static final String BEARER_TYPE = "bearer";
-    private static final long ACCESS_TOKEN_EXPIRE_TIME = 1000 * 60 * 30;    // 30분의 유효기간
+    private static final long ACCESS_TOKEN_EXPIRE_TIME = 1000 * 60 * 30;
     private String jwtSecretKey;
 
     public JwtTokenProvider(@Value("${jwt.secret}") String secretKey) {
+        byte[] keyBytes = Base64.getDecoder().decode(secretKey);
         this.jwtSecretKey = secretKey;
     }
 
-    private Date getTokenExpirationTime() {
-        long now = (new Date()).getTime();
-        return new Date(now + ACCESS_TOKEN_EXPIRE_TIME);
-    }
-
-    // 토큰 생성 by oauth2(ex)구글 로그인) member id 생성 기준
+    // 토큰 생성 by id
     public JwtTokenDto generateTokenDto(String id) {
         Date expireDate = getTokenExpirationTime();
 
         String accessToken = Jwts.builder()
                 .setExpiration(expireDate)
                 .setSubject(id)
-                // 현재는 ROLE_USER만 가져옴
                 .claim(AUTHORITIES_KEY, Authority.ROLE_USER.name())
                 .signWith(SignatureAlgorithm.HS256, jwtSecretKey)
                 .compact();
@@ -58,7 +50,6 @@ public class JwtTokenProvider {
 
     // 토큰 생성 by authentication
     public JwtTokenDto generateTokenDto(Authentication authentication) {
-        // 현재는 ROLE_USER만 가져옴
         String authorities = authentication.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.joining(","));
@@ -79,6 +70,12 @@ public class JwtTokenProvider {
                 .build();
     }
 
+    private Date getTokenExpirationTime() {
+        long now = (new Date()).getTime();
+        return new Date(now + ACCESS_TOKEN_EXPIRE_TIME);
+    }
+
+
     // jwt토큰으로 권한 정보 출력
     public Authentication getAuthentication(String accessToken) {
         Claims claims = null;
@@ -88,9 +85,7 @@ public class JwtTokenProvider {
             log.info("만료된 JWT 토큰입니다.");
         }
 
-        if (Objects.isNull(claims)
-                || Objects.isNull(claims.get(AUTHORITIES_KEY))
-        ) {
+        if (Objects.isNull(claims) || Objects.isNull(claims.get(AUTHORITIES_KEY))) {
             throw new RuntimeException("권한 정보가 없는 토큰입니다.");
         }
 

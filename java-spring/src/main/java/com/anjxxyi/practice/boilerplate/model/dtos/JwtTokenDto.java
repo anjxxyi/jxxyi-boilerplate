@@ -1,4 +1,4 @@
-package com.anjxxyi.practice.boilerplate.model.dto;
+package com.anjxxyi.practice.boilerplate.model.dtos;
 
 import lombok.*;
 
