@@ -15,7 +15,8 @@ spring:
       name: user
       password: 1234
   datasource:
-    url: jdbc:mariadb://localhost:3306/mydb # mariadb
+    url: jdbc:mariadb://ec2-43-200-178-116.ap-northeast-2.compute.amazonaws.com/mydb  # mariadb
+#    url: jdbc:mariadb://localhost:3306/mydb             # mariadb
     driver-class-name: org.mariadb.jdbc.Driver
     username: root
     password: 1234
